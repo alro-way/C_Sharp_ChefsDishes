@@ -73,10 +73,7 @@ namespace C_Sharp_ChefsDishes.Controllers
         public IActionResult AddDish_Page()
         {
             List<Chef> AllChefs = dbContext.Chefs
-                // .Include(c=>c.DishesCreated)
-                // .OrderBy(c=>c.FirstName)
                 .ToList();
-
             ViewBag.AllChefs =AllChefs;
             return View("AddDishPage");
         }
@@ -92,7 +89,6 @@ namespace C_Sharp_ChefsDishes.Controllers
             }
             List<Chef> AllChefs = dbContext.Chefs
                 .ToList();
-
             ViewBag.AllChefs =AllChefs;
             return View("AddDishPage");
         }

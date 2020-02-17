@@ -18,7 +18,7 @@ namespace C_Sharp_ChefsDishes.Models
         public int Tastiness {get;set;}
         [Required]
         public string Desc {get;set;}
-        // [Required]
+        [Required]
         public int ChefId {get;set;}
         public Chef Creator {get;set;}
         public DateTime CreatedAt {get;set;} = DateTime.Now;
