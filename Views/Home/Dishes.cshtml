@@ -1,0 +1,29 @@
+@using C_Sharp_ChefsDishes.Models;
+@model List<Dish>
+
+<div class="container">
+    <h3><a href = "/">Chefs</a> | <a href = "/dishes">Dishes</a></h3>
+    <h4>Yum! Take a look at our tasty Dishes!</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Chef</th>
+                <th>Tastiness</th>
+                <th>Calories</th>
+            </tr>
+        </thead>
+        <tbody id="myTable" style="overflow-y:auto;">
+            @foreach(var dish in Model)
+            {
+                <tr>
+                    <td>@dish.DishName</td>
+                    <td>@dish.Creator.FirstName @dish.Creator.LastName</td>
+                    <td>@dish.Tastiness</td>
+                    <td>@dish.Calories</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <h5><a href = "/dishes/new">Add a Dish</a></h5>
+</div>

@@ -1,0 +1,54 @@
+@using System.ComponentModel.DataAnnotations;
+@using C_Sharp_ChefsDishes.Models;
+
+
+<div class="d-flex justify-content-center">
+    @model Dish
+    <form asp-action="AddDish" asp-controller="Home" method="post">
+        <div class="form-group">
+            <h4>Add a Dish!</h4>
+        </div>
+        <div class="form-group">
+            <label asp-for="DishName">Name of Dish:</label>
+            <input asp-for="DishName" type="text" class="form-control" >
+            <span class="valid" asp-validation-for="DishName"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ChefId">Chef:</label>
+            <select asp-for="ChefId" class="form-control" >
+                @foreach(var chef in @ViewBag.AllChefs)
+                {
+                    <option value="@chef.ChefId">@chef.FirstName @chef.LastName</option>
+                }
+            </select>
+            <span class="valid" asp-validation-for="ChefId"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Calories"># of Calories:</label>
+            <input asp-for="Calories" class="form-control">
+            <span class="valid" asp-validation-for="Calories"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Tastiness">Tastiness:</label>
+            <select  asp-for="Tastiness" class="form-control" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <span class="valid" asp-validation-for="Tastiness"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Desc">Description:</label>
+            <textarea asp-for="Desc" class="form-control" rows="5"></textarea>
+            <span class="valid" asp-validation-for="Desc"></span>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-info">Add Dish</button>
+        <br>
+    </form>
+</div>
